@@ -4,9 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="f70eda30-181c-435a-b82b-69494219598a" name="변경" comment="test">
       <change afterPath="$PROJECT_DIR$/templates/eunjin.html" afterDir="false" />
     </list>
+=======
+<<<<<<< HEAD
+    <list default="true" id="f70eda30-181c-435a-b82b-69494219598a" name="변경" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+>>>>>>> 465c15a95b6e702bd2c8a1f74fce7c45dbc11ce7
+    </list>
+=======
+    <list default="true" id="f70eda30-181c-435a-b82b-69494219598a" name="변경" comment="변경" />
+>>>>>>> c2748c838ac788c235b9e762926d0324ba62577f
+>>>>>>> origin/main
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +61,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649386873177</updated>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <workItem from="1649386878252" duration="3350000" />
+=======
+      <workItem from="1649386878252" duration="909000" />
+      <workItem from="1649393104925" duration="45000" />
+>>>>>>> 465c15a95b6e702bd2c8a1f74fce7c45dbc11ce7
+=======
       <workItem from="1649386878252" duration="342000" />
+>>>>>>> c2748c838ac788c235b9e762926d0324ba62577f
     </task>
     <task id="LOCAL-00001" summary="변경">
       <created>1649387499808</created>
