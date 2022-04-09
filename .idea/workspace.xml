@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="f70eda30-181c-435a-b82b-69494219598a" name="변경" comment="test">
+      <change afterPath="$PROJECT_DIR$/templates/eunjin.html" afterDir="false" />
+    </list>
+=======
+<<<<<<< HEAD
+    <list default="true" id="f70eda30-181c-435a-b82b-69494219598a" name="변경" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
+>>>>>>> 465c15a95b6e702bd2c8a1f74fce7c45dbc11ce7
+    </list>
+=======
+    <list default="true" id="f70eda30-181c-435a-b82b-69494219598a" name="변경" comment="변경" />
+>>>>>>> c2748c838ac788c235b9e762926d0324ba62577f
+>>>>>>> origin/main
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="27UuECkjT5wPWICA1oI6GTuVUNG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="f70eda30-181c-435a-b82b-69494219598a" name="변경" comment="" />
+      <created>1649386873177</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649386873177</updated>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <workItem from="1649386878252" duration="3350000" />
+=======
+      <workItem from="1649386878252" duration="909000" />
+      <workItem from="1649393104925" duration="45000" />
+>>>>>>> 465c15a95b6e702bd2c8a1f74fce7c45dbc11ce7
+=======
+      <workItem from="1649386878252" duration="342000" />
+>>>>>>> c2748c838ac788c235b9e762926d0324ba62577f
+    </task>
+    <task id="LOCAL-00001" summary="변경">
+      <created>1649387499808</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649387499808</updated>
+    </task>
+    <task id="LOCAL-00002" summary="변경">
+      <created>1649393922596</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649393922596</updated>
+    </task>
+    <task id="LOCAL-00003" summary="변경">
+      <created>1649394129577</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1649394129577</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="변경" />
+  </component>
+</project>
