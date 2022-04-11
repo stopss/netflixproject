@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>NetNote</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+        html {
+          background-color: #f0f0f0;
+        }
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+        body {
+          color: #999999;
+          font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          letter-spacing: 0;
+          padding: 1rem;
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          -moz-font-feature-settings: "liga" on;
+          margin:0;
+          padding: 0;
+          border: 0;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        a {color: #000; text-decoration: none; outline: none}
+        a:hover, a:active {text-decoration: none; color:#fff;}
+
+        img {
+          height: auto;
+          max-width: 100%;
+          vertical-align: middle;
+        }
+        .btn {
+          background-color: white;
+          border: 1px solid #cccccc;
+          color: #696969;
+          padding: 0.5rem;
+          text-transform: lowercase;
+        }
+        .btn--block {
+          display: block;
+          width: 100%;
+        }
+        .cards {
+          display: flex;
+          flex-wrap: wrap;
+          list-style: none;
+          margin: 0;
+          padding: 0 3.5rem;
+        }
+        .cards__item {
+          display: flex;
+          padding: 1rem;
+        }
+        @media (min-width: 40rem) {
+          .cards__item {
+            width: 50%;
+          }
+        }
+        @media (min-width: 56rem) {
+          .cards__item {
+            width: 33.3333%;
+          }
+        }
+        @media (min-width: 80rem) {
+          .cards__item {
+            width: 25%;
+          }
+        }
+        .card {
+          width: 100%;
+          background-color: white;
+          border-radius: 1rem;
+          box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+            cursor: pointer;
+        }
+        .card:hover .card__image {
+          filter: contrast(100%);
+        }
+        .card__content {
+          display: flex;
+          flex: 1 1 auto;
+          flex-direction: column;
+          padding: 1rem;
+        }
+        .card__image {
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-top-left-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+          filter: contrast(70%);
+          overflow: hidden;
+          position: relative;
+          transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+          border-radius: 1rem;
+          height: 30rem;
+        }
+        .card__image::before {
+          content: "";
+          display: block;
+          padding-top: 56.25%;
+        }
+        @media (min-width: 40rem) {
+          .card__image::before {
+            padding-top: 66.6%;
+          }
+        }
+
+        .card__image--fence {
+          background-image: url(https://occ-0-2218-988.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABQvis1x3J5wtyxlFVzSPG6Q3AQI7n427LGmb3cMAkcmmuZmGvZg0idp-OP807JpZ2Vms8JDYunOHSa_P1AzgFHJZDfxl.jpg?r=5ec);
+        }
+        .card__title {
+            color: #696969;
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding-bottom: 1rem;
+
+        }
+        .card__text {
+
+            flex: 1 1 auto;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+           overflow: hidden;
+
+        }
+
+
+        /*ir_so 접근성을 위한 숨김 텍스트*/
+        .ir_so {overflow: hidden; position: absolute; width: 0; height: 0; line-height: 0; text-indent: -9999px;}
+        /*header*/
+        header {
+            overflow: hidden;
+            width: 100%;
+            height: 150px;
+            background: #C4C4C4;
+            padding: 0 4.5rem;
+        }
+        .logo {
+            float: left;
+            font-size: 20px;
+            line-height: 150px;
+            color: #000;
+
+        }
+        .menu {
+            float: right;
+
+        }
+        .menu li {
+            float: left;
+            line-height: 150px;
+            text-align: center;
+            background: #C4C4C4;
+            padding-left: 50px;
+        }
+        .menu li a {
+            font-size: 20px;
+        }
+
+        .tab {
+            padding: 0 4.5rem;
+            overflow: hidden;
+        }
+        .day {
+
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 2rem;
+            transform: rotate(90deg);
+            display: inline-block;
+
+        }
+        .tab_item {
+            float: left;
+            margin: 1.5rem 40px 1rem 0;
+            text-align: center;
+        }
+        .tab_item button {
+            padding: 10px 1px;
+            border: none;
+            border-bottom: 1px solid #000;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!---- 헤더 영역 ---->
+        <header>
+            <h1 class="logo">로고</h1>
+            <ul class="menu">
+                <li><a href="#">기록하기</a></li>
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">로그인</a></li>
+            </ul>
+        </header>
+
+        <!---- 섹션 영역 --->
+        <section>
+            <div class="tab_wrap">
+                <!-- 탭 목록 -->
+                <ul class="tab">
+                    <!-- 탭 목록 활성화 클래스 active -->
+                    <li class="tab_item active">
+                        <button type="button">MOVIE</button>
+                    </li>
+                    <li class="tab_item active">
+                        <button type="button">MOVIE</button>
+                    </li>
+                </ul>
+                <!-- 탭 패널 wrap -->
+                <!-- 탭 패널 활성화 클래스 active  -->
+                <div class="tab_panel_wrap">
+                    <h3 class="ir_so">영화</h3>
+                    <!-- 탭 패널 -->
+                    <ul class="cards">
+                      <li class="cards__item">
+                        <div class="card">
+                          <div class="card__content">
+                            <div class="card__title">리틀 포레스트</div>
+                                <p class="card__text">
+                                    바쁘게 돌아가는 도시 생활에 지쳐 고향에 내려온 혜원. 초등학교 친구들과
+                                    정겨운 시간을 보내며, 단조롭지만 사계절의 순리에 맞춰 살아가는 시골 생활에 금세 익숙해진다. 인생의
+                                    긴 겨울이 지나고 나면 따스한 봄날이 찾아오겠지?
+                                </p>
+                            </div>
+                            <!-- 이미지 -->
+                          <div class="card__image card__image--fence"></div>
+                        </div>
+                      </li>
+                      <li class="cards__item">
+                        <div class="card">
+                          <div class="card__content">
+                            <div class="card__title">리틀 포레스트</div>
+                                <p class="card__text">
+                                    바쁘게 시 생활에
+                                </p>
+                            </div>
+                            <!-- 이미지 -->
+                          <div class="card__image card__image--fence"></div>
+                        </div>
+                      </li>
+                      <li class="cards__item">
+                        <div class="card">
+                          <div class="card__content">
+                            <div class="card__title">리틀 포레스트</div>
+                                <p class="card__text">
+                                    바쁘게 돌아가는 도시 생활에 지쳐 고향에 내려온 혜원. 초등학교 친구들과
+                                    정겨운 시간을 보내며, 단조롭지만 사계절의 순리에 맞춰 살아가는 시골 생활에 금세 익숙해진다. 인생의
+                                    긴 겨울이 지나고 나면 따스한 봄날이 dfdfdfdfdfdfdfffffffffff찾아오겠지?. 초등학교 친구들과
+                                    정겨운 시간을 보내며, 단조롭지만 사계절의 순리에 맞춰 살아가는 시골 생활에 금세 익숙해진다. 인생의
+                                    긴 겨울이 지나고 나면 따스한 봄날이 dfdfdfdfdfdfdfffffffffff찾아오겠지?
+                                </p>
+                            </div>
+                            <!-- 이미지 -->
+                          <div class="card__image card__image--fence">
+                              <span class="day">2010.01.01</span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="cards__item">
+                        <div class="card">
+                          <div class="card__content">
+                            <div class="card__title">리틀 포레스트</div>
+                                <p class="card__text">
+                                    바쁘게 돌아가는 도시 생활에 지쳐 고향에 내려온 혜원. 초등학교 친구들과
+                                    정겨운 시간을 보내며, 단조롭지만 사계절의 순리에 맞춰 살아가는 시골 생활에 금세 익숙해진다. 인생의
+                                    긴 겨울이 지나고 나면 따스한 봄날이 찾아오겠지?
+                                </p>
+                            </div>
+                            <!-- 이미지 -->
+                          <div class="card__image card__image--fence"></div>
+                        </div>
+                      </li>
+                      <li class="cards__item">
+                        <div class="card">
+                          <div class="card__content">
+                            <div class="card__title">리틀 포레스트</div>
+                                <p class="card__text">
+                                    바쁘게 돌아가는 도시 생활에 지쳐 고향에 내려온 혜원. 초등학교 친구들과
+                                    정겨운 시간을 보내며, 단조롭지만 사계절의 순리에 맞춰 살아가는 시골 생활에 금세 익숙해진다. 인생의
+                                    긴 겨울이 지나고 나면 따스한 봄날이 찾아오겠지?
+                                </p>
+                            </div>
+                            <!-- 이미지 -->
+                          <div class="card__image card__image--fence"></div>
+                        </div>
+                      </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div class="model_url" style="display: none">
+            <div>
+                <p>
+                    넷플릭스에서 제공하는 컨텐츠의 URL을 입력하세요<br/>
+                    Ex) url
+                </p>
+                <input id="url" type="text" placeholder="fueihf/eif;kfhjei/fe.com">
+
+                <input type="submit" value="기록하기">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
