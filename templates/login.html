@@ -17,17 +17,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 
-    <!-- script 파일의 경로 설정  -->
-    <script src="{{ url_for('static', filename='login.js') }}"></script>
-
-    <!-- css파일의 경로 설정 -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
     <style>
         * {
-            font-family: 'Hahmlet', serif;
+            font-family: 'Jua', sans-serif;
         }
 
 
@@ -38,15 +32,14 @@
             background-size: cover;
         }
 
-        .box{
+        .box {
             width: 500px;
             height: 430px;
-            height: 390px;
             margin: 100px auto 0 auto;
         }
 
         .logogo {
-            font-size: xx-large;
+            font-size: xxx-large;
             color: darkred;
             text-align: center;
             margin-bottom: 20px;
@@ -55,49 +48,47 @@
         .button.is-sparta {
             background-color: darkred;
             border-color: transparent;
-            color: #fff !important;
+            color: #fff;
         }
-
 
         .button.is-sparta.is-outlined {
             background-color: transparent;
             border-color: darkred;
-            color: darkred !important;
+            color: darkred;
         }
     </style>
 
     <script>
         function toggle_sign_up() {
             $("#help-id-login").toggleClass("is-hidden")
-            $("#help-password-login").toggleClass("is-hidden")
+            $("#help-pw-login").toggleClass("is-hidden")
         }
 
 
         function sign_in() {
-            let username = $("#input-username").val()               // id값을 읽어옴.
-            let password = $("#input-password").val()               // pw값을 읽어옴.
+            let id = $("#id").val()               // id값을 읽어옴.
+            let pw = $("#pw").val()               // pw값을 읽어옴.
 
-            if (username == "") {
+            if (id == "") {
                 $("#help-id-login").text("아이디를 입력해주세요.")     // 아이디의 값들이 빈 값인지 아닌지 검사. -> ""(아이디 창이 비어 있으면) text를 보여줌.
-                $("#input-username").focus()
+                $("#id").focus()
                 return;
             } else {
                 $("#help-id-login").text("")
             }
 
-            if (password == "") {
-                $("#help-password-login").text("비밀번호를 입력해주세요.")   // 비밀번호의 값들이 빈 값인지 아닌지 검사. -> ""(pw 창이 비어 있으면) text를 보여줌.
-                $("#input-password").focus()
+            if (pw == "") {
+                $("#help-pw-login").text("비밀번호를 입력해주세요.")   // 비밀번호의 값들이 빈 값인지 아닌지 검사. -> ""(pw 창이 비어 있으면) text를 보여줌.
                 return;
             } else {
-                $("#help-password-login").text("")
+                $("#help-pw-login").text("")
             }
             $.ajax({
                 type: "POST",
-                url: "/sign_in",
+                url: "/sign_up",
                 data: {
-                    username_give: username,
-                    password_give: password
+                    id_give: id,
+                    pw_give: pw
                 },
                 success: function (response) {
                     if (response['result'] == 'success') {
@@ -115,15 +106,15 @@
 </head>
 <body>
 <section class="section">
-    <div class="container" >
+    <div class="container">
         <div class="box">
-            <div class="logogo"> <h1>로고</h1></div>
+            <div class="logogo"><h1>NetNote</h1></div>
             <article class="media">
                 <div class="media-content">
                     <div class="content">
                         <div class="field has-addons">
                             <div class="control has-icons-left" style="width:100%">
-                                <input id="input-username" class="input" type="text" placeholder="아이디">
+                                <input id="id" class="input" type="text" placeholder="ID">
                                 <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
                             </div>
                             <div id="btn-check-dup" class="control">
@@ -134,11 +125,11 @@
 
                         <div class="field">
                             <div class="control has-icons-left">
-                                <input id="input-password" class="input" type="password" placeholder="비밀번호">
+                                <input id="pw" class="input" type="password" placeholder="PASSWORD">
                                 <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
                             </div>
                         </div>
-                        <p id="help-password-login" class="help is-danger"></p>
+                        <p id="help-pw-login" class="help is-danger"></p>
 
                     </div>
                     <div id="div-sign-in-or-up" class="has-text-centered">
@@ -150,7 +141,8 @@
                         <hr>
                         <h4 class="mb-3">아직 회원이 아니시라구요? </h4>
                         <nav class="level is-mobile">
-                            <button class="level-item button is-sparta is-outlined" onclick="window.location.href='/sign_up'" >
+                            <button class="level-item button is-sparta is-outlined"
+                                    onclick="window.location.href='/sign_up'">
                                 회원가입하기
                             </button>
                         </nav>
