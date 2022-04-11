@@ -4,7 +4,7 @@ app = Flask(__name__)
 import certifi
 
 from pymongo import MongoClient
-client = MongoClient('mongodb+srv://test:sparta@cluster0.x85pm.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=certifi.where())
+client = MongoClient('mongodb+srv://sparta:test@cluster0.gqkk6.mongodb.net/Cluster0?retryWrites=true&w=majority',tlsCAFile=certifi.where())
 db = client.dbnetnote
 
 @app.route('/')
