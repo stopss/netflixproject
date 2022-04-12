@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 app = Flask(__name__)
 
-
 # jwt 연결
 import jwt                                                                            #파이썬 인터프리터에서 jwt 추가해주세요!
 # 시간 날짜 형태 사용
@@ -14,21 +13,13 @@ from bson.objectid import ObjectId                                              
 import certifi
 from pymongo import MongoClient
 
-client = MongoClient('mongodb+srv://test:sparta@cluster0.juhth.mongodb.net/cluster0?retryWrites=true&w=majority',tlsCAFile=certifi.where())
-
-import hashlib
-import certifi
-from pymongo import MongoClient
-
 client = MongoClient('',tlsCAFile=certifi.where())
-
 db = client.dbnetnote
 
 
 @app.route('/')
 def home():
     return render_template('home.html')
-
 
 #로그인 시간이 만료되면 홈으로 이동.
 @app.route('/')
@@ -56,23 +47,6 @@ def login():
     result = db.users.find_one({'id': id_receive,
                                 'pw': pw_hash})                                                  # 아이디와 패스워드가 매칭되는지 판단을 해줌. 매칭되는 사람이 있다면! 로그인에 성공 한것. 매칭이 안되면 회원가입을 해야함.
 
-
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-
-@app.route("/login", methods=["POST"])
-def sign_up():
-    # 로그인
-    id_receive = request.form['id_give']
-    pw_receive = request.form['pw_give']
-
-    pw_hash = hashlib.sha256(pw_receive.encode('utf-8')).hexdigest()                             # 비밀번호 암호화를 위한 해쉬값을 만들어 줌.
-    result = db.users.find_one({'id': id_receive,
-                                'pw': pw_hash})                                                  # 아이디와 패스워드가 매칭되는지 판단을 해줌. 매칭되는 사람이 있다면! 로그인에 성공 한것. 매칭이 안되면 회원가입을 해야함.
-
-
     if result is not None:                                                                       # result가 있다면!
         payload = {
             'id2': id_receive,
@@ -84,7 +58,6 @@ def sign_up():
                                                                                                  # 찾지 못하면,
     else:
         return jsonify({'result': 'fail', 'msg': '아이디/비밀번호가 일치하지 않습니다.'})
-
 
 @app.route('/sign_up')
 def sign_up_template():
@@ -112,7 +85,8 @@ def sign_up_check():
     return jsonify({'result': 'success', 'exists': exists})
 
 
-
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
+
+
 
