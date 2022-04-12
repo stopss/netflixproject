@@ -10,7 +10,7 @@
 
 ### 1) 첫 페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96c88bcd-f301-45fe-a012-2bfc0ce87115/Untitled.png)
+![image](https://user-images.githubusercontent.com/98968060/162932670-be9ca5ac-33ac-4340-9086-d2c813e7027e.png)
 
 구현해야 하는 기능
 
@@ -21,7 +21,7 @@
 
 ### 2) 회원가입 페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0ab50561-69e7-4b1e-aa9b-7791df8e49bc/Untitled.png)
+![image](https://user-images.githubusercontent.com/98968060/162932724-e1bf9a83-f02a-4057-ae32-3fcbdf10341e.png)
 
 구현해야 하는 기능
 
@@ -35,7 +35,7 @@
 
 ### 3) 로그인 페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b510c00-5646-43a4-96cc-f6824917bdab/Untitled.png)
+![image](https://user-images.githubusercontent.com/98968060/162932819-9ea43a0e-43d3-4808-8b8e-df4a594e79d9.png)
 
 구현해야 하는 기능
 
@@ -53,7 +53,7 @@
 
 ### 4) 메인 페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e1536c21-cc12-4dcd-bb6c-a5af1adc9039/Untitled.png)
+![image](https://user-images.githubusercontent.com/98968060/162932902-e2277a2b-f341-4b30-9342-1c143a9ffbc0.png)
 
 구현해야 하는 기능
 
@@ -61,7 +61,8 @@
 - 로그인이 되어 있는 경우, 우측 상단에 기록하기, 마이페이지, 로그아웃 버튼 보이게 구현
     - 기록하기 버튼 클릭 시, 모달창에서 URL 주소값을 받은 후 기록하기 페이지로 이동
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a4cfd6b-5fdc-4914-acbe-f02241d16e7d/Untitled.png)
+    ![image](https://user-images.githubusercontent.com/98968060/162933003-eb82f413-7545-4cc5-a4cb-63bc545626cd.png)
+
     
     - 마이페이지 버튼 클릭 시, 마이페이지 페이지로 이동
     - 로그아웃 버튼 클릭 시, 쿠키 삭제
@@ -70,7 +71,8 @@
 
 ### 5) 기록하기 페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/313bc7bb-8118-48cf-a5b8-29d7d151c0fd/Untitled.png)
+![image](https://user-images.githubusercontent.com/98968060/162933059-9e0f6d18-6d4f-4413-8f09-3ef206193de3.png)
+
 
 구현해야 하는 기능
 
@@ -84,7 +86,7 @@
 
 ### 6) 뷰 페이지
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/400eb643-4ee8-4957-8d85-f0f15bbeb54b/Untitled.png)
+![image](https://user-images.githubusercontent.com/98968060/162933140-946ddb3c-792a-4227-bc29-6ca4fb01c8da.png)
 
 구현해야 하는 기능
 
