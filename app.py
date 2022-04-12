@@ -13,7 +13,7 @@ db = client.dbnetnote
 
 @app.route('/')
 def home():
-   return render_template('home.html')ㅎ
+   return render_template('home.html')
 
 @app.route("/netnote/write", methods=["GET"])
 def write_get():
