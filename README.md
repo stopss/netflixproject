@@ -1,4 +1,5 @@
 # netflixproject
+# 1. 프로젝트 주제
 ### 1) 프로젝트명 : NetNote
 
 ### 2) 상세 설명
