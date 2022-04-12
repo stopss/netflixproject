@@ -59,6 +59,15 @@
     </style>
 
     <script>
+
+        function sign_in() {
+            let id = $("#input-username").val()               // id값을 읽어옴.
+            let pw = $("#input-password").val()               // pw값을 읽어옴.
+
+            if (id == "") {
+                $("#help-id-login").text("아이디를 입력해주세요.")     // 아이디의 값들이 빈 값인지 아닌지 검사. -> ""(아이디 창이 비어 있으면) text를 보여줌.
+                $("#input-username").focus()
+
         function toggle_sign_up() {
             $("#help-id-login").toggleClass("is-hidden")
             $("#help-pw-login").toggleClass("is-hidden")
@@ -72,12 +81,24 @@
             if (id == "") {
                 $("#help-id-login").text("아이디를 입력해주세요.")     // 아이디의 값들이 빈 값인지 아닌지 검사. -> ""(아이디 창이 비어 있으면) text를 보여줌.
                 $("#id").focus()
+
                 return;
             } else {
                 $("#help-id-login").text("")
             }
 
             if (pw == "") {
+
+                $("#help-password-login").text("비밀번호를 입력해주세요.")   // 비밀번호의 값들이 빈 값인지 아닌지 검사. -> ""(pw 창이 비어 있으면) text를 보여줌.
+                $("#input-password").focus()
+                return;
+            } else {
+                $("#help-password-login").text("")
+            }
+            $.ajax({
+                type: "POST",
+                url: "/login",
+
                 $("#help-pw-login").text("비밀번호를 입력해주세요.")   // 비밀번호의 값들이 빈 값인지 아닌지 검사. -> ""(pw 창이 비어 있으면) text를 보여줌.
                 return;
             } else {
@@ -86,6 +107,7 @@
             $.ajax({
                 type: "POST",
                 url: "/sign_up",
+
                 data: {
                     id_give: id,
                     pw_give: pw
@@ -114,13 +136,26 @@
                     <div class="content">
                         <div class="field has-addons">
                             <div class="control has-icons-left" style="width:100%">
+
+                                <input id="input-username" class="input" type="text" placeholder="ID">
+
                                 <input id="id" class="input" type="text" placeholder="ID">
+
                                 <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
                             </div>
                             <div id="btn-check-dup" class="control">
                             </div>
                         </div>
                         <p id="help-id-login" class="help is-danger"></p>
+
+                        <div class="field">
+                            <div class="control has-icons-left">
+                                <input id="input-password" class="input" type="password" placeholder="PASSWORD">
+                                <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
+                            </div>
+                        </div>
+                        <p id="help-password-login" class="help is-danger"></p>
+
 
 
                         <div class="field">
@@ -130,6 +165,7 @@
                             </div>
                         </div>
                         <p id="help-pw-login" class="help is-danger"></p>
+
 
                     </div>
                     <div id="div-sign-in-or-up" class="has-text-centered">
