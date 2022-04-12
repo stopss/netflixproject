@@ -144,7 +144,7 @@
             $("#help-id").addClass("is-loading")                                                    //정상적으로 중복 확인 버튼을 눌렀을 때
             $.ajax({
                 type: "POST",
-                url: "/sign_up/sign_up_check",
+                url: "/sign_up/chkid",
                 data: {
                     id_give: id
                 },
