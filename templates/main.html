@@ -12,7 +12,7 @@
         html {
           background-color: #f0f0f0;
         }
-        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; vertical-align: baseline; } /* HTML5 display-role reset for older browsers */ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
         body {
           color: #999999;
@@ -20,7 +20,6 @@
           font-style: normal;
           font-weight: 400;
           letter-spacing: 0;
-          padding: 1rem;
           text-rendering: optimizeLegibility;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
@@ -39,17 +38,6 @@
           height: auto;
           max-width: 100%;
           vertical-align: middle;
-        }
-        .btn {
-          background-color: white;
-          border: 1px solid #cccccc;
-          color: #696969;
-          padding: 0.5rem;
-          text-transform: lowercase;
-        }
-        .btn--block {
-          display: block;
-          width: 100%;
         }
         .cards {
           display: flex;
@@ -107,7 +95,7 @@
           position: relative;
           transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
           border-radius: 1rem;
-          height: 30rem;
+          height: 20rem;
         }
         .card__image::before {
           content: "";
@@ -203,6 +191,60 @@
             cursor: pointer;
         }
 
+        /*모달창*/
+        .model_url {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .model_url.show {
+            display: flex;
+        }
+
+        .model_url div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 45rem;
+            height: 25rem;
+            transform: translate(-50%,-50%);
+            background: #eee;
+        }
+        .model_url p {
+            padding: 5rem 0 2rem;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .model_url #url {
+            height: 60px;
+            font-size: 16px;
+            width: 30rem;
+            padding: 5px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .model_url #submit {
+            display: block;
+            margin: 2rem auto;
+            width: 10rem;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .model_url .close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+
+
     </style>
 </head>
 <body>
@@ -211,7 +253,7 @@
         <header>
             <h1 class="logo">로고</h1>
             <ul class="menu">
-                <li><a href="#">기록하기</a></li>
+                <li id="url_open"><a href="#">기록하기</a></li>
                 <li><a href="#">마이페이지</a></li>
                 <li><a href="#">로그인</a></li>
             </ul>
@@ -313,17 +355,37 @@
                 </div>
             </div>
         </section>
-        <div class="model_url" style="display: none">
+        <div class="model_url">
             <div>
                 <p>
-                    넷플릭스에서 제공하는 컨텐츠의 URL을 입력하세요<br/>
-                    Ex) url
+                    넷플릭스에서 제공하는<br/>컨텐츠의 URL을 입력하세요<br/>
+                    Ex) https://www.justwatch.com/kr/%EC%98%81%ED%99%94/svart-krabba
                 </p>
                 <input id="url" type="text" placeholder="fueihf/eif;kfhjei/fe.com">
 
-                <input type="submit" value="기록하기">
+                <input id="submit" type="submit" value="기록하기">
+                <button class="close">닫기</button>
             </div>
         </div>
     </div>
+    <!-- script-->
+    <script>
+        const open = document.querySelector('#url_open');
+        const modalContainer = document.querySelector('.model_url');
+        const close = document.querySelector('.close');
+
+        const openModal = () => {
+            modalContainer.classList.add('show');
+        }
+        const closeModal = (event) => {
+            if(event.target === close) {
+                modalContainer.classList.remove('show');
+            }
+        }
+
+        open.addEventListener("click", openModal)
+        close.addEventListener("click", closeModal)
+
+    </script>
 </body>
 </html>
