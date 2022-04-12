@@ -10,7 +10,7 @@ import hashlib
 # 비밀키 설정
 SECRET_KEY = 'NetNote'
 from bson.objectid import ObjectId                                                    #db에서 object id값 가져올 때 사용.
-import certifi
+import certifi                                                                        #파이썬 인터프리터에서 certifi 추가해주세요.
 from pymongo import MongoClient
 
 client = MongoClient('',tlsCAFile=certifi.where())
@@ -77,7 +77,7 @@ def sign_up():
     return jsonify({'result': 'success'})
 
 
-@app.route("/sign_up/sign_up_check", methods=["POST"])
+@app.route("/sign_up/chkid", methods=["POST"])
 def sign_up_check():
     # 아이디 중복 확인
     id_receive = request.form['id_give']
