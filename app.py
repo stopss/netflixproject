@@ -151,6 +151,38 @@ def view_get():
    return render_template('view.html', data=doc)
 
 
+# main page -eunjin-
+@app.route('/main')
+def main():
+   return render_template('main.html')
+
+
+# DB에 저장된 유저 기록 요청
+@app.route("/netnote/main", methods=["GET"])
+def movie_get():
+    movie_list = list(db.movies.find({},{'_id':False}))
+
+    return jsonify({'movies': movie_list})
+
+
+# URL DB에 저장
+@app.route('/netnote/geturl', methods=['POST'])
+def url_post():
+   url = request.form['url']
+
+   doc = {
+      'url': url
+   }
+   db.movies.insert_one(doc)
+
+   return jsonify({'msg': 'url 주소 저장!'})
+
+
+
+
+
+
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
 
