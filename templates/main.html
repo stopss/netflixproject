@@ -319,12 +319,14 @@
         open.addEventListener("click", openModal)
         close.addEventListener("click", closeModal)
 
+
+
         // db연결
         $(document).ready(function () {
             listing();
         });
 
-        // 가져오기
+        // db 기록 가져오기
         function listing() {
             $.ajax({
                 type: 'GET',
@@ -349,7 +351,6 @@
                                                         ${memo}
                                                     </p>
                                                 </div>
-                                                <!-- 이미지 -->
                                               <div class="card__image" style="background-image: url(${img})">
                                                 <span class="day">${date}</span>
                                               </div>
@@ -363,14 +364,14 @@
             })
         }
 
-        // 보내주기
+        // url 저장
         function urlSave() {
             let url = $("#url").val()
 
             $.ajax({
                 type: 'POST',
                 url: '/netnote/geturl',
-                data: {url: url /*objId: objId*/},
+                data: {url: url},
                 success: function (response) {
                     alert(response['msg'])
 
