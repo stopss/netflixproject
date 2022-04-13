@@ -7,6 +7,9 @@ import jwt                                                                      
 from datetime import datetime, timedelta
 # 비밀번호 암호화
 import hashlib
+
+import requests
+from bs4 import BeautifulSoup
 # 비밀키 설정
 SECRET_KEY = 'NetNote'
 from bson.objectid import ObjectId                                                    #db에서 object id값 가져올 때 사용.
